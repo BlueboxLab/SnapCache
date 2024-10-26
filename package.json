@@ -1,6 +1,6 @@
 {
   "name": "snapcache",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lightweight in-memory caching tool for Node.js with configurable TTL and efficient retrieval.",
   "main": "index.js",
   "repository": {
