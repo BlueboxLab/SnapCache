@@ -1,0 +1,31 @@
+{
+  "name": "snapcache",
+  "version": "1.0.0",
+  "description": "Lightweight in-memory caching tool for Node.js with configurable TTL and efficient retrieval.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlueboxLab/SnapCache.git"
+  },
+  "author": "xkroenen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BlueboxLab/SnapCache/issues"
+  },
+  "homepage": "https://github.com/BlueboxLab/SnapCache#readme",
+  "keywords": [
+    "cache",
+    "caching",
+    "node",
+    "utility",
+    "performance"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "files": [
+    "lib/",
+    "index.js",
+    "README.md"
+  ]
+}
