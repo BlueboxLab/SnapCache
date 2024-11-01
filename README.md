@@ -1,7 +1,7 @@
 # SnapCache 🌟
 
 [![NPM Version](https://img.shields.io/npm/v/snapcache?style=for-the-badge)](https://www.npmjs.com/package/snapcache)
-[![Repository Size](https://img.shields.io/github/repo-size/Alpha5959/snapcache?style=for-the-badge)](https://github.com/Alpha5959/snapcache)
+[![Repository Size](https://img.shields.io/github/repo-size/BlueboxLab/snapcache?style=for-the-badge)](https://github.com/BlueboxLab/snapcache)
 [![License](https://img.shields.io/npm/l/snapcache?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Downloads](https://img.shields.io/npm/dt/snapcache?style=for-the-badge)](https://www.npmjs.com/package/snapcache)
 [![Support](https://img.shields.io/badge/Support-Discord-7289d9?style=for-the-badge&logo=discord)](https://discord.com/invite/Rw5gRVqSaK)
@@ -15,6 +15,7 @@ A **lightweight**, **in-memory caching tool** for Node.js, designed for **effici
 - ⏳ **Customizable TTL**: Control how long items remain in the cache.
 - 📉 **Automatic Eviction**: Oldest items are removed automatically when exceeding max size.
 - 🧹 **Clear and Delete**: Manage your cache easily with straightforward commands.
+- ⚠️ **Error Handling**: Provides error messages for invalid keys and values.
 
 ## Installation 📦
 
@@ -82,7 +83,30 @@ cache.clear(); // Clear all items
 console.log(cache.get('item1')); // null (cleared)
 ```
 
-## How It Works 🔍
+#### Error Handling
+
+SnapCache now includes error handling for specific conditions:
+
+- **Invalid Key**: If you attempt to set a value with a key that is not a string or object, an error will be thrown.
+- **Invalid Value**: If you try to set a value that is not an object, an error will be thrown.
+
+Example of handling errors:
+
+```javascript
+try {
+  cache.set(123, { data: 'This will throw an error' }); // Invalid key
+} catch (error) {
+  console.error(error.message); // "Invalid key: Key must be a string or object."
+}
+
+try {
+  cache.set('invalidValue', 'This will also throw an error'); // Invalid value
+} catch (error) {
+  console.error(error.message); // "Invalid value: Value must be an object."
+}
+```
+
+### How It Works 🔍
 
 - **Storing Values**: The `set` method stores a value with a key and calculates an expiration time based on the provided TTL.
 - **Retrieving Values**: The `get` method checks if the item exists and hasn't expired. If it has expired, it removes it from the cache and returns `null`.
